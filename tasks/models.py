@@ -1,3 +1,9 @@
 from django.db import models
+from commons.models import Model
 
-# Create your models here.
+
+class Task(Model):
+	name = models.CharField(max_length=70)
+	duration = models.PositiveSmallIntegerField()
+	start_date = models.DateField()
+	end_date = models.DateField()
