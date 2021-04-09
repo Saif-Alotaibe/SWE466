@@ -75,6 +75,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'SWE466.wsgi.application'
 
 
+AUTH_USER_MODEL = 'commons.User'
+
+SITE_ID = 1
+
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -107,6 +112,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Enabling authentication through email
+AUTHENTICATION_BACKENDS = (
+    'commons.utils.EmailBackend',
+    )
 
 
 # Internationalization
