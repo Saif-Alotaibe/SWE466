@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractUser
 
 
 class Model(models.Model):
@@ -10,3 +11,14 @@ class Model(models.Model):
 
     class Meta:
         abstract = True
+
+
+class User(AbstractUser, Model):
+	username = models.CharField(null=True, max_length=70, unique=False)
+	email = models.EmailField(unique=True, null=True)
+	
+	REQUIRED_FIELDS = ['username']
+	USERNAME_FIELD = 'email'
+	
+	def __str__(self):
+		return self.username or ''
