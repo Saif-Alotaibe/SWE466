@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar is-dark customize" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
+            <h1>ProjectStats web app</h1>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a  href="createTasks.html" class="navbar-item">
+              <span>
+              Create tasks
+            </span>
+            </a>  
+      
+            <a href="createResources.html" class="navbar-item">
+              Create Resources
+            </a>
+
+              <a href="viewTasks.html" class="navbar-item">
+                View Tasks
+              </a>
+
+              <a href="viewResources.html" class="navbar-item">
+                View Resources
+              </a>
+
+              <a href="viewTasksAndResources.html" class="navbar-item">
+                Assign Tasks with Resources 
+              </a>
+
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+          </div>
+        </div>
+      </nav>
+
+    <main class="contain">
+      <section class="secOne">
+        <h1>Create a Resource</h1>
+
+      </section>
+      <section class="secTwo">
+        <img src="../assets/resource.svg" alt="">
+        <form>
+            <div class="field">
+                <label class="label">Resource name: </label>
+                <div class="control">
+                    <input type="text" class="input" name="resourceName" id="task-name" placeholder="ex: Project manager">
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Type of Resource: </label>
+                <div class="control">
+                  <input type="text" class="input" name="typeOfResource" id="dur" placeholder="ex: Work ">   
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Material of resource: </label>
+                <div class="control">
+                    <input type="text" class="input" name="material" id="mat">
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Max (No. of Resource): </label>
+                <div class="control">
+                    <input type="text" class="input" name="noOfResources" id="max" placeholder="ex: 100% ">
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <label class="label">St. per rate: </label>
+                <div class="control">
+                    <input type="text" class="input" name="stPerRate" id="stprate" placeholder="ex: 15$/hr">
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Over time: </label>
+                <div class="control">
+                    <input type="text" class="input" name="overTime" id="ovt">
+                </div>
+
+                <div class="field">
+                  <label class="label">Cost per use: </label>
+                  <div class="control">
+                      <input type="text" class="input" name="overTime" id="ovt">
+                  </div>
+                <p class="help">This is a help text</p>
+              </div>
+
+              <div class="field">
+                <p class="control">
+                  <button type="submit" class="button button-color">
+                    Save
+                  </button>
+        </form>
+      </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../js/navBurger.js"></script>
+</body>
+</html>
