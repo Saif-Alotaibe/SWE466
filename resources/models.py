@@ -26,7 +26,7 @@ class Resource(Model):
     task = models.ManyToManyField(Task, blank=True, related_name="resources")
     name = models.CharField(max_length=70)
     resource_type = models.CharField(max_length=70, choices=TYPES)
-    material_label = models.CharField(max_length=70)  # a measurment for a given resource  ex:tons,box
+    material_label = models.CharField(max_length=70, null=True)  # a measurment for a given resource ex:tons,box
     max_number_of_resources = models.FloatField(choices=MAX_NUMBER_OF_RESOURCES)  # Either 100, 50 , 0
     standard_rate = MoneyField(max_digits=14, decimal_places=2, default_currency="USD", null=True)
     overtime_rate = MoneyField(max_digits=14, decimal_places=2, default_currency="USD", null=True)
