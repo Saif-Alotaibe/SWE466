@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+ <main class="contain">
+      <section class="secOne">
+        <h1>Here is all tasks with their resources</h1>
+<!-- alert message for any operation result  -->
+{% for message in messages  %}
+     <div class="container mt-5">
+             <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <strong><small>{{ message }}.</small></strong>
+          <button type="button" class="close btn text-right" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                </div>
+            {% endfor %}
+<!-- end of alert messages -->
+      </section>
+      <section class="secTwo">
+
+        <table class="table">
+            <thead>
+              <tr class="is-selected">
+                <th>Task Number</th>
+                <th>Task Name</th>
+                <th>Duration</th>
+                <th>Start Date</th>
+                <th>Finsih Date</th>
+                <th>Resource(s) Name</th>
+                <th>Total cost</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            {% for task in tasks %}
+              <tr>
+                <th>{{ forloop.counter }}</th>
+                <td>{{ task.name }}</td>
+                <td>{{ task.duration }} days</td>
+                <td>{{ task.start_date|date:"m-d-Y" }}</td>
+                <td>{{ task.end_date|date:"m-d-Y" }}</td>
+
+                <td>
+                    <p>
+                    {% for resource in task.resources.all %}
+                   {{ resource.name }}<br>
+                    {% endfor %}
+                     </p>
+               </td>
+               <td> {{ task.total_resource_cost }}$</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+
+            <tfoot>
+                <tr>
+                  <th><abbr title="Total cost">Total Cost</abbr></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th>{{ grand_total }}$</th>
+                </tr>
+              </tfoot>
+
+          </table>
+      </section>
+    </main>
+
+{% endblock %}
