@@ -1,1 +1,75 @@
-<h1> Hello world :)</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body class="all-info">
+    <nav class="navbar is-dark customize" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
+            <h1>SWE466</h1>
+          </a>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a  href="{% url 'createTasks' %}" class="navbar-item">
+              <span>
+              Create tasks
+            </span>
+            </a>
+
+            <a href="{% url 'createResource' %}" class="navbar-item">
+              Create Resources
+            </a>
+
+            <a href="{% url 'tasks' %}" class="navbar-item">
+              All Tasks Report
+            </a>
+
+            <a href="{% url 'resources' %}" class="navbar-item">
+              All Resources Report
+            </a>
+
+             <a href="{% url 'viewTasksWithResources' %}" class="navbar-item">
+              All Tasks with Resources Report
+            </a>
+
+            <a href="{% url 'assignTasksToResources' %}" class="navbar-item">
+              Assign Resources to Tasks
+            </a>
+
+            </div>
+          </div>
+
+          <div class="navbar-end">
+          </div>
+        </div>
+      </nav>
+{% block content %}
+
+{% endblock %}
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script  src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.min.js"  integrity="sha384-VmD+lKnI0Y4FPvr6hvZRw6xvdt/QZoNHQ4h5k0RL30aGkR9ylHU56BzrE2UoohWK"  crossorigin="anonymous"></script>
+<script src="{% static 'js/navBurger.js' %}"></script>
+</body>
+</html>
+
