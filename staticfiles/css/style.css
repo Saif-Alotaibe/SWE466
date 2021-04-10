@@ -36,6 +36,7 @@ section.secOne {
     text-align: center;
     font-weight: bold;
     font-size:3em;
+    padding-top: 5%;
 }
 
 .field .help {
