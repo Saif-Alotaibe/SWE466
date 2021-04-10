@@ -1,62 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-</head>
-<body class="all-info">
-    <nav class="navbar is-dark customize" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-            <h1>ProjectStats web app</h1>
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a  href="createTasks.html" class="navbar-item">
-              <span>
-              Create tasks
-            </span>
-            </a>  
-      
-            <a href="createResources.html" class="navbar-item">
-              Create Resources
-            </a>
-
-            <a href="viewTasks.html" class="navbar-item">
-              View Tasks
-            </a>
-
-            <a href="viewResources.html" class="navbar-item">
-              View Resources
-            </a>
-
-            <a href="viewTasksAndResources.html" class="navbar-item">
-              Assign Tasks with Resources 
-            </a>
-
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-          </div>
-        </div>
-      </nav>
-
+{% extends 'base.html' %}
+{% block content %}
     <main class="contain">
       <section class="secOne">
         <h1>Here is all your resources</h1>
@@ -77,30 +20,20 @@
               </tr>
             </thead>
             <tbody>
+            {% for resource in resources %}
               <tr>
-                <th>1</th>
-                <td>Project manager</td>
-                <td>Work</td>
-                <td>Dont't know</td>
-                <td>100%</td>
-                <td>40$/hr</td>
-                <td>20$</td>
+                <th>{{ resource.name }}</th>
+                <td>{{ resource.resource_type }}</td>
+                <td>{{ resource.material_label }}</td>
+                <td>{{ resource.max_number_of_resources }}%</td>
+                <td>{{ resource.standard_rate.amount }}$/hr</td>
+                <td>{{ resource.overtime_rate.amount }}$/hr</td>
+                <td>{{ resource.cost_of_use.amount }}$</td>
                 </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Project manager</td>
-                    <td>Work</td>
-                    <td>Dont't know</td>
-                    <td>100%</td>
-                    <td>40$/hr</td>
-                    <td>20$</td>
-                    </tr>
+            {% endfor %}
             </tbody>
           </table>
       </section>
-      <button class="button button-color">Upload report</button>
+{#      <button class="button button-color">Download as pdf</button>#}
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="../js/navBurger.js"></script>
-</body>
-</html>
+{% endblock %}
