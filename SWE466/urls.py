@@ -16,8 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from commons.views import home
+from tasks.views import view_tasks, create_tasks
+from resources.views import view_resource, create_resource
+from commons.views import assign_resources_to_tasks, view_tasks_with_resources
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home")
+    path('', home, name="home"),
+
+    path('tasks/', view_tasks, name="tasks"),
+    path('createTasks/', create_tasks, name="createTasks"),
+
+    path('resources/', view_resource, name="resources"),
+    path('createResource/', create_resource, name="createResource"),
+    
+    path('assignResourcesToTasks/', assign_resources_to_tasks, name="assignTasksToResources"),
+    path('tasksWithResources/', view_tasks_with_resources, name="viewTasksWithResources")
+    
 ]
